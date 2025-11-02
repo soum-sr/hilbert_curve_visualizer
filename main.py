@@ -1,11 +1,12 @@
 import tkinter as tk
 import time
 import colorsys
+import sys
 
 class HilbertCurve:
     def __init__(self, order=1, size=512):
         self.root = tk.Tk()
-        self.root.title("Hilbert Curve Visualizer")
+        self.root.title(f"Hilbert Curve Visualizer | Order: {order}")
 
         self.size = size
         self.canvas = tk.Canvas(self.root, width=size, height=size, bg="black")
@@ -109,6 +110,17 @@ class HilbertCurve:
 
 
 if __name__ == "__main__":
-    app = HilbertCurve(order=8, size=1024)
+    # Default values
+    order = 5
+    size = 1024
+
+    if len(sys.argv) > 1:
+        try:
+            order = int(sys.argv[1])
+        except ValueError:
+            print("Invalid order value, generating with default order value = 5")
+    
+    print(f"Generating Hilbert Curve of order: {order}")
+    app = HilbertCurve(order=order, size=1024)
     app.generate_curve()
     app.run()
