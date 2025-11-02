@@ -54,6 +54,7 @@ class HilbertCurve:
         return coord
 
     def generate_curve(self):
+        """ Method to generate all points in 2D plane and draw lines """
         all_points = []
 
         for i in range(self.total_points):
@@ -71,6 +72,7 @@ class HilbertCurve:
 
     
     def generate_colors(self):
+        """ Method to generate list of total_point color values in incremental hue value"""
         colors = []
 
         for i in range(self.total_points):
@@ -85,6 +87,7 @@ class HilbertCurve:
         return colors
 
     def draw_point(self, x, y, name, text_offset=10):
+        """ Method to draw a point on canvas """
         r = 3
 
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="white", outline="white")
@@ -92,6 +95,7 @@ class HilbertCurve:
         self.root.update()
 
     def draw_line(self, x1, y1, x2, y2, line_color="white", delay=0):
+        """ Method to draw a line on canvas """
         self.canvas.create_line(x1, y1, x2, y2, fill=line_color, width=2)
 
         self.root.update()
@@ -99,6 +103,7 @@ class HilbertCurve:
             time.sleep(delay)
 
     def run(self):
+        """ Method to initiate the event loop and halt the code so it doesn't close"""
         self.root.mainloop()
 
 
