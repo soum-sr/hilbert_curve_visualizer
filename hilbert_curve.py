@@ -33,7 +33,7 @@ class HilbertCurve:
             i = i >> 2 # shift to get the quadrant location
             index = i & 3 # quadrant index
 
-            # offset increases to the power of j
+            # offset increases by 2 ** j per order
             offset = 2 ** j
 
             if index == 0: # first quadrant
