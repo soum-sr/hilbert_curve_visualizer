@@ -121,6 +121,6 @@ if __name__ == "__main__":
             print("Invalid order value, generating with default order value = 5")
     
     print(f"Generating Hilbert Curve of order: {order}")
-    app = HilbertCurve(order=order, size=1024)
+    app = HilbertCurve(order=order, size=size)
     app.generate_curve()
     app.run()
